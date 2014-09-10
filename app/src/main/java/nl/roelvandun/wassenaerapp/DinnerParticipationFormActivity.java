@@ -2,29 +2,53 @@ package nl.roelvandun.wassenaerapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
+import android.widget.TextView;
 
 public class DinnerParticipationFormActivity extends Activity {
 
-    private int mWeekNumber;
+    // views
+    private TextView mWeekNumberTextView;
+    private ListView mParticipationsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dinner_participation_form);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, new String[]{"fwda34d", "fwdafwd", "fwtawft"});
+        getWeekNumberTextView().setText(getString(R.string.week) + ": 37");
 
-        ListAdapter customAdapter = new ParticipationRowAdapter(this, R.layout.participation_row_layout);
+        ListAdapter customAdapter = new ParticipationRowAdapter(this, R.layout.participation_row_radio_layout);
+        getParticipationsListView().setAdapter(customAdapter);
 
-        ListView participationsListView = (ListView) findViewById(R.id.lv_participations);
+        //TODO validate if all checkboxes are filled in
 
-        participationsListView.setAdapter(customAdapter);
+        //TODO submit button handler
 
+        //TODO save to parse.com
+
+        //TODO style radiobuttons
+
+        //TODO disable days in the past
+
+        //TODO notify the cook that you're not joining
+
+        //TODO overview of the weekx
+    }
+
+    private TextView getWeekNumberTextView() {
+        if (mWeekNumberTextView == null) {
+            mWeekNumberTextView = (TextView) findViewById(R.id.tv_week_number);
+        }
+        return mWeekNumberTextView;
+    }
+
+    private ListView getParticipationsListView() {
+        if (mParticipationsListView == null) {
+            mParticipationsListView = (ListView) findViewById(R.id.lv_participations);
+        }
+        return mParticipationsListView;
     }
 
 }
