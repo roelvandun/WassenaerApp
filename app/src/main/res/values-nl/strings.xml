@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wassenaer App</string>
+    <string name="yes">ja</string>
+    <string name="later">later</string>
+    <string name="no">nee</string>
+    <string name="week">week</string>
+    <string name="submit">opslaan</string>
+
+    <string-array name="weekdays">
+        <item>maandag</item>
+        <item>dinsdag</item>
+        <item>woensdag</item>
+        <item>donderdag</item>
+        <item>vrijdag</item>
+        <item>zaterdag</item>
+        <item>zondag</item>
+    </string-array>
+
+</resources>
